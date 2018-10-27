@@ -1,0 +1,36 @@
+<h1>Users#new</h1>
+<p>Find me in app/views/users/new.html.erb</p>
+
+<h1>Sign Up</h1>
+
+
+<% if @user.errors.any? %>
+  <div class='alert alert-danger'>
+    <p>Please correct the following errors:</p>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <div class=''>
+    <%= f.label :email %>
+    <%= f.email_field :email, class: '' %>
+  </div>
+  <div class=''>
+    <%= f.label :password %>
+    <%= f.password_field :password, class: '' %>
+  </div>
+  <div class=''>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: '' %>
+  </div>
+  <%= f.submit 'Submit', class: '' %>
+<% end %>
+
+<p class=''>
+  Already have an account? <%= link_to 'Click here to sign in.', login_path %>
+</p>

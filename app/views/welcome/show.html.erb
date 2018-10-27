@@ -1,0 +1,7 @@
+<h1>Welcome#show</h1>
+
+<% if @current_user %>
+  <h2>Welcome back <%= @current_user.email %>!</h2>
+  <% else %>
+  <%= flash[:error] %>
+<% end %>
