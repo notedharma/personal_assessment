@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :require_valid_user!
   before_action :reset_session
+  enum status: { basic: 0, owner: 1, admin: 2 }
 
   def new
     @user = User.new

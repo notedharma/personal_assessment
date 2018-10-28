@@ -13,6 +13,15 @@ gem 'bcrypt'
 gem "omniauth"
 gem "omniauth-google-oauth2"
 
+# Geocoder for GPS
+gem 'geocoder'
+
+# create seed database
+gem 'faker'
+
+# for pagination
+gem 'kaminari'
+
 
 
 

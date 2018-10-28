@@ -3,6 +3,8 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
 	validates :password, length: { in: 4..20}
   has_many :authentications, dependent: :destroy
+  has_many :votes
+  has_many :venues
 
 def self.create_with_auth_and_hash(authentication, auth_hash)
   user = self.create!(
