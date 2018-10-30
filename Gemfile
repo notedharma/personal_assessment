@@ -95,5 +95,11 @@ gem 'faker'
 # for pagination
 gem 'kaminari'
 
+# for jquery
+gem 'jquery-rails'
+
+# For deployment
+gem 'rails_12factor'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

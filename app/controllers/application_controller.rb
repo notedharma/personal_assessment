@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   def require_valid_user!
     if current_user.nil?
       flash[:error] = 'Please login to continue.'
-      # redirect_to root_path
+      redirect_to login_path
     end
   end
 end

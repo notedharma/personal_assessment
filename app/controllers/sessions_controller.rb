@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   # ensures that we aren't requiring the user to be logged in for the new and create methods
-  skip_before_action :require_valid_user!, except: [:destroy]
+  skip_before_action :require_valid_user!
 
   def new
   end
