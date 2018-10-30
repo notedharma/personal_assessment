@@ -4,23 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.1'
 
 
-# Added Gems--------------------------------------------------
-gem "figaro"
 
-gem 'bcrypt'
-
-# google Authentication
-gem "omniauth"
-gem "omniauth-google-oauth2"
-
-# Geocoder for GPS
-gem 'geocoder'
-
-# create seed database
-gem 'faker'
-
-# for pagination
-gem 'kaminari'
 
 
 
@@ -62,6 +46,13 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'shoulda-callback-matchers'
+  gem 'rails-controller-testing'
+  gem 'capybara'
 end
 
 group :development do
@@ -71,15 +62,38 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+
 end
 
 group :test do
+  gem 'shoulda-matchers'
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
+  # gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  # Added  For testing
 end
+
+
+# Added Gems--------------------------------------------------
+gem "figaro"
+
+gem 'bcrypt'
+
+# google Authentication
+gem "omniauth"
+gem "omniauth-google-oauth2"
+
+# Geocoder for GPS
+gem 'geocoder'
+
+# create seed database
+gem 'faker'
+
+# for pagination
+gem 'kaminari'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

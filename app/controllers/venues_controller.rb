@@ -5,7 +5,8 @@ class VenuesController < ApplicationController
 
     @venues = Venue.filter(filter_venue_params) if params[:search].present?
 
-    @venues = @venues.order(:updated_at)#.page(params[:page]).per(12)#
+    @venues = @venues.order(:updated_at).reverse_order.page(params[:page]).per(12)
+
   end
 
   def new
@@ -16,8 +17,6 @@ class VenuesController < ApplicationController
     results = Geocoder.search([params[:latitude].to_f, params[:longitude].to_f])
     @address = results.first.address
     render json: {address: @address}
-
-#
   end
 
 
@@ -25,9 +24,13 @@ class VenuesController < ApplicationController
     @venue = Venue.new(venue_params)
     @venue.user_id = current_user.id
     @venue.save
+    redirect_to venue_path(@venue.id)
   end
 
   def show
+    @venue = Venue.find(params[:id])
+    @votes = @venue.votes
+
   end
 
   def edit
@@ -46,9 +49,7 @@ class VenuesController < ApplicationController
     end
 
     def filter_venue_params
-
-    params.require(:search).permit(:name, :address, :category, :price)
-
+      params.require(:search).permit(:name, :address, :category, :price, :avg_rating)
     end
 
 end

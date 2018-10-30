@@ -1,2 +1,60 @@
-<h1>Venues#show</h1>
-<p>Find me in app/views/venues/show.html.erb</p>
+ <div>
+	<h1><%= "#{@venue.name}"%></h1>
+  <p><%= "Rating: #{@venue.avg_rating}, Votes: #{@venue.votes.count}"%></p>
+  <p><%= "Price: #{@venue.price}, Category: #{@venue.category},"%></p>
+  <p><%= "Address: #{@venue.address}"%></p>
+  <p><%= "#{@venue.description}"%></p>
+</div>
+
+
+
+
+
+<div class = col-10>
+<div class="card">
+  <div class="card-header">
+    Add a Review of <%= "#{@venue.name}"%>
+  </div>
+  <div class="card-body">
+    	<%= form_with scope: :vote, url: venue_votes_path(@venue), local: true do |form| %>
+		<div class="row">
+			    <div class="col">
+			       <div class="form-group">
+						<%= form.select(:rating, options_for_select([ ['Rating', "1"],
+              ['1', "1"],
+              ['2', "2"],
+              ['3', "3"],
+              ['4', "4"],
+              ['5', "5"]] ), {:class => 'form-control'})  %>
+					</div>
+			    </div>
+		</div>
+
+
+
+		<div class="form-group">
+		    <label for="review">Review</label>
+		  	<%= form.text_area :review, placeholder: "What do you think?", :id =>"", class:"form-control", rows:"2" %>
+		 </div>
+
+
+
+
+		  <div>
+		  	<%= form.submit %>
+		  </div>
+		<% end %>
+  </div>
+</div>
+</div>
+
+<h1>Reviews of <%= "#{@venue.name}"%></h1>
+<div>
+  <% @votes.each_with_index do |vote, index| %>
+	   <div>
+        <p><%= "Rating: #{vote.rating} Star by #{vote.user.email}"%></p>
+        <p><%= "Review: #{vote.review}, "%></p>
+        <p>-------------------------------------</p>
+	    </div>
+    <% end %>
+</div>

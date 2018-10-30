@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :authentications, dependent: :destroy
   has_many :votes
   has_many :venues
+  enum status: { basic: 0, owner: 1, admin: 2 }
 
 def self.create_with_auth_and_hash(authentication, auth_hash)
   user = self.create!(

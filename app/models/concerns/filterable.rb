@@ -11,6 +11,11 @@ module Filterable
         when "price"
           results = results.where("#{:price} LIKE '#{value}'")
 
+        when "avg_rating"
+
+          results = results.where("#{:avg_rating} = '#{value.to_i}'")
+
+
         else
           results = results.where("#{key} ILIKE '%#{value}%'")
         end

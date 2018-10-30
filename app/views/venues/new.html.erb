@@ -1,14 +1,6 @@
-<!-- for map -->
-<div>
-  <meta charset='utf-8' />
-      <title>Add a generated icon to the map</title>
-      <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-      <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
-      <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
-</div>
 
 <h1>Add a new Restaurant</h1>
-<p>Find me in app/views/listings/new.html.erb</p>
+
 
 <div class ="col-10 ">
 <div class="card">
@@ -36,7 +28,7 @@
 		<div class="row">
 			    <div class="col">
 			       <div class="form-group">
-						<%= select_tag(:price, options_for_select([ ['Price Range', ""],
+						<%= form.select(:price, options_for_select([ ['Price Range', "$"],
               ['$', "$"],
               ['$$', "$$"],
               ['$$$', "$$$"],
