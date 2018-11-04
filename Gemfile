@@ -101,5 +101,10 @@ gem 'jquery-rails'
 # For deployment
 gem 'rails_12factor'
 
+# upgrade because of github security vulnerability
+gem "loofah", ">= 2.2.3"
+
+
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
